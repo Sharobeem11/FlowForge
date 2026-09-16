@@ -13,4 +13,9 @@ app.MapGet("/", () => {
     return "FlowForge API is running!";
 });
 
+app.MapGet("/workflows", async (AppDbContext db) => {
+    var workflows = await db.Workflows.ToListAsync();
+    return Results.Ok(workflows);
+});
+
 app.Run();

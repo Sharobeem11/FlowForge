@@ -1,0 +1,202 @@
+# ==========================================
+
+# FlowForge - .gitignore
+
+# ==========================================
+
+# ------------------------------------------
+
+# .NET / C#
+
+# ------------------------------------------
+
+# Build output
+
+bin/
+obj/
+
+# Visual Studio
+
+.vs/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Rider / JetBrains
+
+.idea/
+*.sln.iml
+
+# VS Code
+
+.vscode/
+
+# .NET generated files
+
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+# NuGet
+
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Test results
+
+TestResults/
+*.trx
+
+# ------------------------------------------
+
+# Environment / Secrets
+
+# ------------------------------------------
+
+# Local environment files
+
+.env
+.env.*
+!.env.example
+
+# ASP.NET Core local settings
+
+appsettings.Local.json
+appsettings.Development.local.json
+
+# User secrets
+
+secrets.json
+
+# ------------------------------------------
+
+# Node / React / Frontend
+
+# ------------------------------------------
+
+# Dependencies
+
+node_modules/
+
+# Build output
+
+dist/
+build/
+.next/
+out/
+
+# Coverage
+
+coverage/
+
+# Environment files
+
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# ------------------------------------------
+
+# Docker
+
+# ------------------------------------------
+
+# Docker override files
+
+docker-compose.override.yml
+
+# Docker volumes / local data
+
+postgres-data/
+docker-data/
+
+# ------------------------------------------
+
+# Operating System
+
+# ------------------------------------------
+
+# macOS
+
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+
+# Linux
+
+*~
+
+# ------------------------------------------
+
+# Logs
+
+# ------------------------------------------
+
+logs/
+*.log
+
+# ------------------------------------------
+
+# Temporary files
+
+# ------------------------------------------
+
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+
+# ------------------------------------------
+
+# IDE / Editor
+
+# ------------------------------------------
+
+*.bak
+*.orig
+*.rej
+*~
+#*#
+
+# ------------------------------------------
+
+# Database
+
+# ------------------------------------------
+
+# Local database files
+
+*.db
+*.sqlite
+*.sqlite3
+
+# PostgreSQL local data (if ever mounted
+
+# directly rather than through Docker)
+
+postgres-data/
+
+# ------------------------------------------
+
+# Generated documentation / tooling
+
+# ------------------------------------------
+
+# Swagger/OpenAPI generated files
+
+swagger.json
+openapi.json

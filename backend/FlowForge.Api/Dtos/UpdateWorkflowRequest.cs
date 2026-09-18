@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using FlowForge.Api.Models;
 namespace FlowForge.Api.Dtos;
     
 public class UpdateWorkflowRequest
@@ -11,6 +12,5 @@ public class UpdateWorkflowRequest
     [MaxLength(500)]
     public string Description { get; set; } = string.Empty;
 
-    [Required]
-    public string Status { get; set; } = string.Empty;
+    public WorkflowStatus Status { get; set; }
 }

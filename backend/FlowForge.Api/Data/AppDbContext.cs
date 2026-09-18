@@ -10,4 +10,11 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<Workflow> Workflows => Set<Workflow>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Workflow>()
+            .Property(workflow => workflow.Status)
+            .HasConversion<string>();
+    }
 }

@@ -6,6 +6,12 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.ConfigureHttpJsonOptions(options =>
+{
+    options.SerializerOptions.Converters.Add(
+        new System.Text.Json.Serialization.JsonStringEnumConverter());
+});
+
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));

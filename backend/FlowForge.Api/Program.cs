@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using FlowForge.Api.Data;
 using FlowForge.Api.Models;
 using FlowForge.Api.Dtos;
@@ -30,6 +31,21 @@ app.MapGet("/workflows/{id}", async (Guid id, AppDbContext db) => {
 });
 
 app.MapPost("/workflows", async (CreateWorkflowRequest request, AppDbContext db) => {
+    if (string.IsNullOrWhiteSpace(request.Name))
+    {
+        return Results.BadRequest(new
+        {
+            error = "Workflow name is required."
+        });
+    }
+    if (string.IsNullOrWhiteSpace(request.Description))
+    {
+        return Results.BadRequest(new
+        {
+            error = "Workflow description is required."
+        });
+    }
+    
     var workflow = new Workflow
     {
         Id = Guid.NewGuid(),

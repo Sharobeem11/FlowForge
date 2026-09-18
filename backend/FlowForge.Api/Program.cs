@@ -1,5 +1,6 @@
 using FlowForge.Api.Data;
 using FlowForge.Api.Models;
+using FlowForge.Api.Dtos;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,9 +29,14 @@ app.MapGet("/workflows/{id}", async (Guid id, AppDbContext db) => {
     return Results.Ok(workflow);
 });
 
-app.MapPost("/workflows", async (Workflow workflow, AppDbContext db) => {
-    workflow.Id = Guid.NewGuid();
-    workflow.CreatedAt = DateTime.UtcNow;
+app.MapPost("/workflows", async (CreateWorkflowRequest request, AppDbContext db) => {
+    var workflow = new Workflow
+    {
+        Id = Guid.NewGuid(),
+        Name = request.Name,
+        Description = request.Description,
+        CreatedAt = DateTime.UtcNow
+    };
     db.Workflows.Add(workflow);
     await db.SaveChangesAsync();
     return Results.Created($"/workflows/{workflow.Id}", workflow);
